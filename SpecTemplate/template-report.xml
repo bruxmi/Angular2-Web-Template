@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TemplateReport>
+  <ItemTemplates />
+  <ProjectTemplates>
+    <ProjectTemplate Path="ProjectTemplates\Bruxmi\t\Definitions\CSharp.vstemplate" Name="Angular2 Web Application" Description="Creates an Angular2 application using MVC4 and WebApi." ProjectType="CSharp" ProjectSubType="" />
+  </ProjectTemplates>
+  <Snippets />
+</TemplateReport>
