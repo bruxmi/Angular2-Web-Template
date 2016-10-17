@@ -78,7 +78,7 @@
   <PropertyGroup>
     <PreBuildEvent>rd /S /Q $(ProjectDir)ProjectTemplates\Bruxmi\t\packages
 rd /S /Q $(ProjectDir)ProjectTemplates\Bruxmi\t\.vs
-for /d /r $(ProjectDir)ProjectTemplates\Bruxmi\t\s %25%25d in (bin,obj) do @if exist "%25%25d" rd /s/q "%25%25d"</PreBuildEvent>
+for /d /r $(ProjectDir)ProjectTemplates\Bruxmi\t\s %25%25d in (bin,obj,node_modules) do @if exist "%25%25d" rd /s/q "%25%25d"</PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
