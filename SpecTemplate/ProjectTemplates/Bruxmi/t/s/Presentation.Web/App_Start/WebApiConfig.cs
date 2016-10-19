@@ -1,6 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Autofac;
+using Core;
+using Core.Interfaces.Services;
+using Presentation.Web.ExceptionHandler;
 using System.Web.Http;
 
 namespace Presentation.Web
@@ -10,7 +11,7 @@ namespace Presentation.Web
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
-
+            config.ConfigureExceptionHandling(AppContainer.Current.Resolve<IExceptionHandlerService>());
             // Web API routes
             config.MapHttpAttributeRoutes();
 

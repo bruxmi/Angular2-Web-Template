@@ -30,8 +30,35 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Autofac.4.0.0\lib\net451\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Serilog.2.0.0\lib\net45\Serilog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Serilog.Sinks.MSSqlServer, Version=4.1.1.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Serilog.Sinks.MSSqlServer.4.1.1\lib\net45\Serilog.Sinks.MSSqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Serilog.Sinks.PeriodicBatching, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Serilog.Sinks.PeriodicBatching.2.0.0\lib\net45\Serilog.Sinks.PeriodicBatching.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,8 +67,67 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SpecificationClass.cs" />
+    <Compile Include="AppConfiguration.cs" />
+    <Compile Include="AppContainer.cs" />
+    <Compile Include="AppExceptionHandler.cs" />
+    <Compile Include="Constants\DbConstants.cs" />
+    <Compile Include="Constants\DbCreationConfigurationNames.cs" />
+    <Compile Include="Constants\HttpContextItems.cs" />
+    <Compile Include="Constants\LogConfigurationNames.cs" />
+    <Compile Include="Entities\Application\ApplicationSetting.cs" />
+    <Compile Include="Entities\Application\ConnectionString.cs" />
+    <Compile Include="Entities\Application\Log.cs" />
+    <Compile Include="Entities\Product.cs" />
+    <Compile Include="Enums\BuildConfiguration.cs" />
+    <Compile Include="Enums\LogMode.cs" />
+    <Compile Include="Enums\Sort.cs" />
+    <Compile Include="Exceptions\BaseAppException.cs" />
+    <Compile Include="Extensions\AssemblyExtensions.cs" />
+    <Compile Include="Extensions\DbContextExtensions.cs" />
+    <Compile Include="Extensions\ExceptionExtensions.cs" />
+    <Compile Include="Extensions\OrderByExtension.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Interfaces\IEntity.cs" />
+    <Compile Include="Interfaces\ILog.cs" />
+    <Compile Include="Interfaces\Repository\Command\IAddCommandRepository.cs" />
+    <Compile Include="Interfaces\Repository\Command\ICommandRepository.cs" />
+    <Compile Include="Interfaces\Repository\Command\IDeleteCommandRepository.cs" />
+    <Compile Include="Interfaces\Repository\Command\IDynamicSqlCommandRepository.cs" />
+    <Compile Include="Interfaces\Repository\Command\IUpdateCommandRepository.cs" />
+    <Compile Include="Interfaces\Repository\Query\IApplicationSettingsQueryRepository.cs" />
+    <Compile Include="Interfaces\Repository\Query\IDynamicSqlQueryRepository.cs" />
+    <Compile Include="Interfaces\Repository\Query\IQueryRepository.cs" />
+    <Compile Include="Interfaces\Repository\Query\IRepositoryApplicationSettingInitializer.cs" />
+    <Compile Include="Interfaces\Repository\Query\IRepositoryInitializer.cs" />
+    <Compile Include="Interfaces\Services\IExceptionHandlerService.cs" />
+    <Compile Include="Interfaces\Services\Query\IAppConfigurationService.cs" />
+    <Compile Include="Interfaces\Services\Query\IApplicationSettingQueryService.cs" />
+    <Compile Include="Interfaces\Services\Query\IConnectionStringQueryService.cs" />
+    <Compile Include="Interfaces\Services\Query\IContextService.cs" />
+    <Compile Include="Interfaces\Services\Query\IRepositoryInitializer.cs" />
+    <Compile Include="Interfaces\Services\Query\IProductQueryService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SerilogLogger.cs" />
+    <Compile Include="Services\AppConfigurationService.cs" />
+    <Compile Include="Services\ContextService.cs" />
+    <Compile Include="Services\ExceptionHandlerService.cs" />
+    <Compile Include="Services\Logging\RequestIdEnricher.cs" />
+    <Compile Include="Services\Logging\SerilogAdapter.cs" />
+    <Compile Include="Services\Logging\UserNameEnricher.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interfaces\Services\Command\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".build\SolutionScripts\AddApplicationMigration.ps1" />
+    <None Include=".build\SolutionScripts\CreateDatabase.ps1" />
+    <None Include=".build\SolutionScripts\UpdateApplicationDatabase.ps1" />
+    <None Include=".build\SolutionScripts\UpdateDatabases.ps1" />
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".build\SolutionScripts\CreateDatabase.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

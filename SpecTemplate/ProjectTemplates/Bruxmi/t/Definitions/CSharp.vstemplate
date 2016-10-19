@@ -14,10 +14,18 @@
   <TemplateContent>
     <ProjectCollection>
       <SolutionFolder Name="00_Core">
-        <ProjectTemplateLink ProjectName="$safeprojectname$.Core">s\Core\MyTemplate.vstemplate</ProjectTemplateLink>
+        <ProjectTemplateLink ProjectName="Core">s\Core\MyTemplate.vstemplate</ProjectTemplateLink>
+        <ProjectTemplateLink ProjectName="Core.Registration">s\Core.Registration\MyTemplate.vstemplate</ProjectTemplateLink>
       </SolutionFolder>
       <SolutionFolder Name="11_Presentation">
-        <ProjectTemplateLink ProjectName="$safeprojectname$.Presentation.Web">s\Presentation.Web\MyTemplate.vstemplate</ProjectTemplateLink>
+        <ProjectTemplateLink ProjectName="Presentation.Web">s\Presentation.Web\MyTemplate.vstemplate</ProjectTemplateLink>
+      </SolutionFolder>
+      <SolutionFolder Name="22_Business">
+        <ProjectTemplateLink ProjectName="Business">s\Business\MyTemplate.vstemplate</ProjectTemplateLink>
+      </SolutionFolder>
+      <SolutionFolder Name="33_Data">
+        <ProjectTemplateLink ProjectName="Data.ApplicationSettingsContext">s\Data.ApplicationSettingsContext\MyTemplate.vstemplate</ProjectTemplateLink>
+        <ProjectTemplateLink ProjectName="Data.Repository">s\Data.Repository\MyTemplate.vstemplate</ProjectTemplateLink>
       </SolutionFolder>
     </ProjectCollection>
   </TemplateContent>

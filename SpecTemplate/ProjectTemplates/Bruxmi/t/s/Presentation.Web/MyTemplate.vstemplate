@@ -2,7 +2,7 @@
   <TemplateData>
     <Name>Your name here</Name>
     <Description>Project description here</Description>
-    <DefaultName>$saferootprojectname$.Presentation.Web</DefaultName>
+    <DefaultName>Presentation.Web</DefaultName>
 
     <ProjectType>CSharp</ProjectType>
     <ProjectSubType></ProjectSubType>
@@ -16,7 +16,7 @@
     <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
   </TemplateData>
   <TemplateContent>
-    <Project TargetFileName="$saferootprojectname$.Presentation.Web.csproj" File="Presentation.Web.csproj" ReplaceParameters="true">
+    <Project TargetFileName="Presentation.Web.csproj" File="Presentation.Web.csproj" ReplaceParameters="true">
     </Project>
   </TemplateContent>
   <WizardExtension>
