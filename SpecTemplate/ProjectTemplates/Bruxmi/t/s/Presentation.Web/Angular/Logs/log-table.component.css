@@ -1,13 +1,10 @@
-﻿.setWidth {
-    max-width: 100%;
-}
-
-.concat {
+﻿.concat {
     overflow: hidden;
     -ms-text-overflow: ellipsis;
     -o-text-overflow: ellipsis;
     text-overflow: ellipsis;
     white-space: nowrap;
+    max-width: 100%;
 }
 
 /*

@@ -1,35 +1,38 @@
-﻿<div class="container">
-    <div class="row">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h1>Log-Table</h1>
-            </div>
-            <div class="panel-body">
-                <table class="table table-fixedheader table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th class="col-sm-1">Id</th>
-                            <th class="col-sm-1">Level</th>
-                            <th class="col-sm-2">Timestamp</th>
-                            <th class="col-sm-3">Message</th>
-                            <th class="col-sm-3">Exception</th>
-                            <th class="col-sm-1">Username</th>
-                            <th class="col-sm-1">RequestId</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let log of logs">
-                            <td class="col-sm-1 setWidth concat">{{log.Id}}</td>
-                            <td class="col-sm-1 setWidth concat">{{log.Level}}</td>
-                            <td class="col-sm-2 setWidth concat">{{log.Timestamp}}</td>
-                            <td class="col-sm-3 setWidth concat">{{log.Message}}</td>
-                            <td class="col-sm-3 setWidth concat">{{log.Exception}}</td>
-                            <td class="col-sm-1 setWidth concat">{{log.UserName}}</td>
-                            <td class="col-sm-1 setWidth concat">{{log.RequestId}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+﻿
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h1>Log-Table</h1>
+    </div>
+    <div class="panel-body">
+        <table class="table table-fixedheader table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th class="col-sm-1">Id</th>
+                    <th class="col-sm-1">Level</th>
+                    <th class="col-sm-2">Timestamp</th>
+                    <th class="col-sm-3">Message</th>
+                    <th class="col-sm-3">Exception</th>
+                    <th class="col-sm-1">Username</th>
+                    <th class="col-sm-1">RequestId</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let log of logs">
+                    <td class="col-sm-1 concat">{{log.Id}}</td>
+                    <td class="col-sm-1 concat">{{log.Level}}</td>
+                    <td class="col-sm-2 concat">{{log.Timestamp}}</td>
+                    <td class="col-sm-3 concat">{{log.Message}}</td>
+                    <td class="col-sm-3 concat">{{log.Exception}}</td>
+                    <td class="col-sm-1 concat">{{log.UserName}}</td>
+                    <td class="col-sm-1 concat">{{log.RequestId}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="panel-footer">
+        <input type="number" />
+        <button class="btn btn-sm btn-default">Previous</button>
+        <button class="btn btn-sm btn-default">Next</button>
     </div>
 </div>
+
