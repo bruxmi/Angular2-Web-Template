@@ -30,7 +30,7 @@
         </table>
     </div>
     <div class="panel-footer">
-        <span>Current page: {{logPaging.PageIndex + 1}}</span>
+        <span>Current page: {{logPaging.PageIndex}}</span>
         <button class="btn btn-sm btn-default" (click)="prevPage()" [disabled]="!canClickPrevPage()">Previous</button>
         <button class="btn btn-sm btn-default" (click)="nextPage()" [disabled]="!canClickNextPage()">Next</button>
 

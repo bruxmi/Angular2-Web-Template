@@ -19,9 +19,9 @@ var LogTableComponent = (function () {
         this.isLoading = false;
     }
     LogTableComponent.prototype.ngOnInit = function () {
-        this.pageSizes = [{ key: "1", value: 50 },
-            { key: "2", value: 100 },
-            { key: "3", value: 200 }
+        this.pageSizes = [{ key: "0", value: 50 },
+            { key: "1", value: 100 },
+            { key: "2", value: 200 }
         ];
         this.logLevelFilter = [
             { key: "0", value: "All" },
@@ -42,12 +42,12 @@ var LogTableComponent = (function () {
         this.getLogs();
     };
     LogTableComponent.prototype.pageSizeChanged = function (pageSizeIndex) {
-        var convertedPageSizeIndex = Number.parseInt(pageSizeIndex) - 1;
+        var convertedPageSizeIndex = Number.parseInt(pageSizeIndex);
         this.logPaging.PageSize = this.pageSizes[convertedPageSizeIndex].value;
         this.getLogs();
     };
     LogTableComponent.prototype.logLevelFilterChanged = function (logLevelIndex) {
-        var convertedLogLevelIndex = Number.parseInt(logLevelIndex) - 1;
+        var convertedLogLevelIndex = Number.parseInt(logLevelIndex);
         this.logPaging.SearchTerm = this.logLevelFilter[convertedLogLevelIndex].value;
         this.getLogs();
     };
@@ -74,7 +74,12 @@ var LogTableComponent = (function () {
         return false;
     };
     LogTableComponent.prototype.canClickNextPage = function () {
-        if (!this.isLoading && this.logPaging.PageIndex <= this.logPaging.Count) {
+        var count = 0;
+        if (this.logPaging.PageSize != 0) {
+            var tmp = (this.logPaging.Count / this.logPaging.PageSize).toString();
+            count = Number.parseInt(tmp);
+        }
+        if (!this.isLoading && this.logPaging.PageIndex < count) {
             return true;
         }
         return false;

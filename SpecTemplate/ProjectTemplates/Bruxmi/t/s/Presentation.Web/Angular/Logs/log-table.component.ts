@@ -25,9 +25,9 @@ export class LogTableComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.pageSizes = [{ key: "1", value: 50 },
-            { key: "2", value: 100 },
-            { key: "3", value: 200 }
+        this.pageSizes = [{ key: "0", value: 50 },
+            { key: "1", value: 100 },
+            { key: "2", value: 200 }
         ];
         this.logLevelFilter = [
             { key: "0", value: "All" },
@@ -50,13 +50,13 @@ export class LogTableComponent implements OnInit {
     }
 
     public pageSizeChanged(pageSizeIndex: string) {
-        let convertedPageSizeIndex = Number.parseInt(pageSizeIndex) - 1;
+        let convertedPageSizeIndex = Number.parseInt(pageSizeIndex);
         this.logPaging.PageSize = this.pageSizes[convertedPageSizeIndex].value;
         this.getLogs();
     }
 
     public logLevelFilterChanged(logLevelIndex: string) {
-        let convertedLogLevelIndex = Number.parseInt(logLevelIndex) - 1;
+         let convertedLogLevelIndex = Number.parseInt(logLevelIndex);
         this.logPaging.SearchTerm = this.logLevelFilter[convertedLogLevelIndex].value;
         this.getLogs();
     }
@@ -89,7 +89,13 @@ export class LogTableComponent implements OnInit {
     }
 
     public canClickNextPage(): boolean {
-        if (!this.isLoading && this.logPaging.PageIndex <= this.logPaging.Count) {
+        let count = 0;
+        if (this.logPaging.PageSize != 0) {
+            let tmp = (this.logPaging.Count / this.logPaging.PageSize).toString();
+            count = Number.parseInt(tmp);
+        }
+
+        if (!this.isLoading && this.logPaging.PageIndex < count) {
             return true;
         }
         return false;
