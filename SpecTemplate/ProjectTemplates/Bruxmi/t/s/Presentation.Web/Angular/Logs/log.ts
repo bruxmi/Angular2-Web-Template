@@ -7,3 +7,12 @@
     RequestId: string;
     UserName: string;
 }
+
+export interface ILogPaging {
+    Count: number;
+    PageIndex: number;
+    PageSize: number;
+    SearchTerm: string;
+    IsDescending: boolean;
+    Logs: ILog[];
+}

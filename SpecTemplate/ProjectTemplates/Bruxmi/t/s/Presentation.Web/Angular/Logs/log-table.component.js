@@ -16,20 +16,60 @@ var LogTableComponent = (function () {
         this.http = http;
         this.infoService = infoService;
         this.pageTitle = "Logs";
+        this.isLoading = false;
     }
     LogTableComponent.prototype.ngOnInit = function () {
+        this.logPaging = {
+            Count: 0,
+            IsDescending: true,
+            PageIndex: 0,
+            PageSize: 5,
+            Logs: null,
+            SearchTerm: "All"
+        };
         this.getLogs();
     };
     LogTableComponent.prototype.getLogs = function () {
         var _this = this;
-        this.http.getAll("api/logQuery/").subscribe(function (logs) { return _this.onSucceedLoading(logs); }, function (error) { return _this.onError(error); });
+        this.isLoading = true;
+        this.http.update("api/logQuery/", 0, this.logPaging).subscribe(function (logs) { return _this.onSucceedLoading(logs); }, function (error) { return _this.onError(error); });
         this.infoService.showInfo("loading product...", "success");
     };
-    LogTableComponent.prototype.onSucceedLoading = function (logs) {
-        this.logs = logs;
+    LogTableComponent.prototype.getPageCount = function () {
+        var result = "0";
+        if (this.logPaging.PageSize != 0) {
+            result = (this.logPaging.Count / this.logPaging.PageSize).toPrecision();
+        }
+        return result;
+    };
+    LogTableComponent.prototype.prevPage = function () {
+        this.logPaging.PageIndex--;
+        this.getLogs();
+    };
+    LogTableComponent.prototype.nextPage = function () {
+        this.logPaging.PageIndex++;
+        this.getLogs();
+    };
+    LogTableComponent.prototype.canClickPrevPage = function () {
+        if (this.isLoading || this.logPaging.PageIndex == 0) {
+            return false;
+        }
+        return true;
+    };
+    LogTableComponent.prototype.canClickNextPage = function () {
+        if (this.isLoading || this.logPaging.PageIndex == this.logPaging.Count) {
+            return false;
+        }
+        return true;
+    };
+    LogTableComponent.prototype.onSucceedLoading = function (logPaging) {
+        this.logPaging = logPaging;
+        this.logs = logPaging.Logs;
+        this.isLoading = false;
         this.infoService.showInfo("Loaded logging entries", "success");
     };
     LogTableComponent.prototype.onError = function (error) {
+        this.isLoading = false;
         this.infoService.showInfo("Loading product failed: " + error, "danger");
     };
     LogTableComponent = __decorate([

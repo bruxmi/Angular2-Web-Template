@@ -31,8 +31,9 @@
     </div>
     <div class="panel-footer">
         <input type="number" />
-        <button class="btn btn-sm btn-default">Previous</button>
-        <button class="btn btn-sm btn-default">Next</button>
+        <button class="btn btn-sm btn-default" (click)="prevPage()" [disabled]="!canClickPrevPage()">Previous</button>
+        <button class="btn btn-sm btn-default" (click)="nextPage()" [disabled]="!canClickNextPage()">Next</button>
+        <span>Page Count: {{getPageCount()}}</span>
     </div>
 </div>
 

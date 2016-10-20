@@ -19,5 +19,19 @@ namespace Business.ApplicationSettings
         {
             return await this.logRepository.GetAllAsync();
         }
+
+        public async Task<int> GetLogsCountAsync()
+        {
+            return await this.logRepository.CountAsync();
+        }
+
+        public async Task<List<Log>> GetLogsWithPagingAsync(int pageIndex, int pageSize, bool isDescending, string searchTerm)
+        {
+            if (searchTerm == "All")
+            {
+                return await this.logRepository.GetAllWithPagingAsync(l => l.Id, pageIndex, pageSize);
+            }
+            return await this.logRepository.GetFilteredtWithPagingAndOrderAsync(l => l.Level == searchTerm, l => l.Id, pageIndex, pageSize);
+        }
     }
 }
