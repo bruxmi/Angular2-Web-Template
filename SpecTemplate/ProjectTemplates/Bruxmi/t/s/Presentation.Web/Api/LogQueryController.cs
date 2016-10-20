@@ -9,14 +9,9 @@ namespace Angular2.Api
 {
     public class LogQueryController : BaseApiController<ILogQueryService>
     {
-        public async Task<IHttpActionResult> GetLogs()
-        {
-            return Ok(await this.Service.GetLogs());
-        }
-
         public async Task<IHttpActionResult> Put(LogPagingVm vm)
         {
-            var count = await this.Service.GetLogsCountAsync();
+            var count = await this.Service.GetLogsCountAsync(vm.SearchTerm);
             var logs = await this.Service.GetLogsWithPagingAsync(vm.PageIndex, vm.PageSize, vm.IsDescending, vm.SearchTerm);
             vm.Logs = logs;
             vm.Count = count;

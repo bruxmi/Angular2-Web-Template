@@ -19,26 +19,43 @@ var LogTableComponent = (function () {
         this.isLoading = false;
     }
     LogTableComponent.prototype.ngOnInit = function () {
+        this.pageSizes = [{ key: "1", value: 50 },
+            { key: "2", value: 100 },
+            { key: "3", value: 200 }
+        ];
+        this.logLevelFilter = [
+            { key: "0", value: "All" },
+            { key: "1", value: "Debug" },
+            { key: "2", value: "Information" },
+            { key: "3", value: "Warning" },
+            { key: "4", value: "Error" },
+            { key: "5", value: "Fatal" }
+        ];
         this.logPaging = {
             Count: 0,
             IsDescending: true,
             PageIndex: 0,
-            PageSize: 5,
+            PageSize: 50,
             Logs: null,
             SearchTerm: "All"
         };
         this.getLogs();
     };
-    LogTableComponent.prototype.getLogs = function () {
-        var _this = this;
-        this.isLoading = true;
-        this.http.update("api/logQuery/", 0, this.logPaging).subscribe(function (logs) { return _this.onSucceedLoading(logs); }, function (error) { return _this.onError(error); });
-        this.infoService.showInfo("loading product...", "success");
+    LogTableComponent.prototype.pageSizeChanged = function (pageSizeIndex) {
+        var convertedPageSizeIndex = Number.parseInt(pageSizeIndex) - 1;
+        this.logPaging.PageSize = this.pageSizes[convertedPageSizeIndex].value;
+        this.getLogs();
+    };
+    LogTableComponent.prototype.logLevelFilterChanged = function (logLevelIndex) {
+        var convertedLogLevelIndex = Number.parseInt(logLevelIndex) - 1;
+        this.logPaging.SearchTerm = this.logLevelFilter[convertedLogLevelIndex].value;
+        this.getLogs();
     };
     LogTableComponent.prototype.getPageCount = function () {
-        var result = "0";
+        var result = "1";
         if (this.logPaging.PageSize != 0) {
-            result = (this.logPaging.Count / this.logPaging.PageSize).toPrecision();
+            result = (this.logPaging.Count / this.logPaging.PageSize).toString();
+            result = Number.parseInt(result).toString();
         }
         return result;
     };
@@ -51,19 +68,26 @@ var LogTableComponent = (function () {
         this.getLogs();
     };
     LogTableComponent.prototype.canClickPrevPage = function () {
-        if (this.isLoading || this.logPaging.PageIndex == 0) {
-            return false;
+        if (!this.isLoading && this.logPaging.PageIndex > 0) {
+            return true;
         }
-        return true;
+        return false;
     };
     LogTableComponent.prototype.canClickNextPage = function () {
-        if (this.isLoading || this.logPaging.PageIndex == this.logPaging.Count) {
-            return false;
+        if (!this.isLoading && this.logPaging.PageIndex <= this.logPaging.Count) {
+            return true;
         }
-        return true;
+        return false;
+    };
+    LogTableComponent.prototype.getLogs = function () {
+        var _this = this;
+        this.isLoading = true;
+        this.http.update("api/logQuery/", 0, this.logPaging).subscribe(function (logs) { return _this.onSucceedLoading(logs); }, function (error) { return _this.onError(error); });
+        this.infoService.showInfo("loading product...", "success");
     };
     LogTableComponent.prototype.onSucceedLoading = function (logPaging) {
         this.logPaging = logPaging;
+        this.logPaging.PageSize = Number.parseInt(this.logPaging.PageSize.toString());
         this.logs = logPaging.Logs;
         this.isLoading = false;
         this.infoService.showInfo("Loaded logging entries", "success");

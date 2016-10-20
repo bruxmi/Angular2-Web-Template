@@ -9,10 +9,8 @@ namespace Core.Interfaces.Services.Query
 {
     public interface ILogQueryService
     {
-        Task<List<Log>> GetLogs();
-
         Task<List<Log>> GetLogsWithPagingAsync(int pageIndex, int pageSize, bool isDescending, string searchTerm);
 
-        Task<int> GetLogsCountAsync();
+        Task<int> GetLogsCountAsync(string searchTerm);
     }
 }

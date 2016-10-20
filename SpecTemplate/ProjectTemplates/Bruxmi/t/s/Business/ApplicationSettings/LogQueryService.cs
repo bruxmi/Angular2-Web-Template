@@ -15,14 +15,14 @@ namespace Business.ApplicationSettings
         {
             this.logRepository = logRepository;
         }
-        public async Task<List<Log>> GetLogs()
-        {
-            return await this.logRepository.GetAllAsync();
-        }
 
-        public async Task<int> GetLogsCountAsync()
+        public async Task<int> GetLogsCountAsync(string searchTerm)
         {
-            return await this.logRepository.CountAsync();
+            if (string.IsNullOrEmpty(searchTerm))
+            {
+                return await this.logRepository.CountAsync();
+            }
+            return await this.logRepository.CountAsync(s => s.Level == searchTerm);
         }
 
         public async Task<List<Log>> GetLogsWithPagingAsync(int pageIndex, int pageSize, bool isDescending, string searchTerm)

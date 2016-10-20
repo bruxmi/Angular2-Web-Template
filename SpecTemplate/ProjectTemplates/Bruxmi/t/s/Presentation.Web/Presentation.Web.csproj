@@ -204,7 +204,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Angular\app.component.html" />
-    <Content Include="Angular\Home\welcome.component.html" />
     <Content Include="Angular\Logs\log-table.component.css" />
     <Content Include="Angular\Logs\log-table.component.html" />
     <Content Include="Angular\Products\product-detail.component.html" />
@@ -274,7 +273,6 @@
     <TypeScriptCompile Include="Angular\app-routing.module.ts" />
     <TypeScriptCompile Include="Angular\app.module.ts" />
     <TypeScriptCompile Include="Angular\app.component.ts" />
-    <TypeScriptCompile Include="Angular\Home\welcome.component.ts" />
     <TypeScriptCompile Include="Angular\Logs\log.ts" />
     <TypeScriptCompile Include="Angular\Logs\log-table.component.ts" />
     <TypeScriptCompile Include="Angular\Logs\log-table.module.ts" />

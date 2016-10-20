@@ -30,10 +30,22 @@
         </table>
     </div>
     <div class="panel-footer">
-        <input type="number" />
+        <span>Current page: {{logPaging.PageIndex + 1}}</span>
         <button class="btn btn-sm btn-default" (click)="prevPage()" [disabled]="!canClickPrevPage()">Previous</button>
         <button class="btn btn-sm btn-default" (click)="nextPage()" [disabled]="!canClickNextPage()">Next</button>
+
+        <span>Loglevel Filter: </span>
+        <select (change)="logLevelFilterChanged($event.target.value)">
+            <option *ngFor="let opt of logLevelFilter" [value]="opt.key">{{opt.value}}</option>
+        </select>
+
         <span>Page Count: {{getPageCount()}}</span>
+        <div>
+            <h3>Pagesize: </h3>
+            <select (change)="pageSizeChanged($event.target.value)">
+                <option *ngFor="let opt of pageSizes" [value]="opt.key">{{opt.value}}</option>
+            </select>
+        </div>
     </div>
 </div>
 

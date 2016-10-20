@@ -28,7 +28,7 @@ namespace Core.Services.Logging
 
         public virtual void Fatal(string message, Exception e)
         {
-            this.serlig.Error(e, message);
+            this.serlig.Fatal(e, message);
         }
 
         public virtual void Info(string message)

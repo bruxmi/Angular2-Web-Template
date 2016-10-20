@@ -6,7 +6,6 @@ import { HttpModule } from "@angular/http";
 import { AppComponent }   from "./app.component";
 import { ProductModule } from "./Products/product.module";
 import { AppRoutingModule } from "./app-routing.module"
-import { WelcomeComponent } from "./Home/welcome.component";
 import { SharedModule } from "./Shared/shared.module";
 import { LogModule } from "./Logs/log-table.module";
 
@@ -19,7 +18,7 @@ import { LogModule } from "./Logs/log-table.module";
         AppRoutingModule,
         SharedModule,
     ],
-    declarations: [AppComponent, WelcomeComponent],
+    declarations: [AppComponent],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

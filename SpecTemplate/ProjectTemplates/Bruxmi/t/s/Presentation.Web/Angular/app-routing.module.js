@@ -10,7 +10,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var welcome_component_1 = require("./Home/welcome.component");
 var product_list_component_1 = require("./Products/product-list.component");
 var product_detail_component_1 = require("./Products/product-detail.component");
 var log_table_component_1 = require("./Logs/log-table.component");
@@ -21,8 +20,7 @@ var AppRoutingModule = (function () {
         core_1.NgModule({
             imports: [
                 router_1.RouterModule.forRoot([
-                    { path: '', redirectTo: 'welcome', pathMatch: 'full' },
-                    { path: 'welcome', component: welcome_component_1.WelcomeComponent },
+                    { path: '', redirectTo: 'products', pathMatch: 'full' },
                     { path: 'products', component: product_list_component_1.ProductListComponent },
                     { path: 'product/:id', component: product_detail_component_1.ProductDetailComponent },
                     { path: 'logs', component: log_table_component_1.LogTableComponent },

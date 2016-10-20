@@ -15,7 +15,6 @@ var http_1 = require("@angular/http");
 var app_component_1 = require("./app.component");
 var product_module_1 = require("./Products/product.module");
 var app_routing_module_1 = require("./app-routing.module");
-var welcome_component_1 = require("./Home/welcome.component");
 var shared_module_1 = require("./Shared/shared.module");
 var log_table_module_1 = require("./Logs/log-table.module");
 var AppModule = (function () {
@@ -31,7 +30,7 @@ var AppModule = (function () {
                 app_routing_module_1.AppRoutingModule,
                 shared_module_1.SharedModule,
             ],
-            declarations: [app_component_1.AppComponent, welcome_component_1.WelcomeComponent],
+            declarations: [app_component_1.AppComponent],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])
