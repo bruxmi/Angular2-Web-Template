@@ -156,6 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\Base\BaseApiController.cs" />
+    <Compile Include="Api\LogQueryController.cs" />
     <Compile Include="Api\ProductQueryController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -204,6 +205,8 @@
   <ItemGroup>
     <Content Include="Angular\app.component.html" />
     <Content Include="Angular\Home\welcome.component.html" />
+    <Content Include="Angular\Logs\log-table.component.css" />
+    <Content Include="Angular\Logs\log-table.component.html" />
     <Content Include="Angular\Products\product-detail.component.html" />
     <Content Include="Angular\Products\product-list.component.css" />
     <Content Include="Angular\Products\product-list.component.html" />
@@ -272,6 +275,9 @@
     <TypeScriptCompile Include="Angular\app.module.ts" />
     <TypeScriptCompile Include="Angular\app.component.ts" />
     <TypeScriptCompile Include="Angular\Home\welcome.component.ts" />
+    <TypeScriptCompile Include="Angular\Logs\log.ts" />
+    <TypeScriptCompile Include="Angular\Logs\log-table.component.ts" />
+    <TypeScriptCompile Include="Angular\Logs\log-table.module.ts" />
     <TypeScriptCompile Include="Angular\main.ts" />
     <TypeScriptCompile Include="Angular\Products\product-detail.component.ts" />
     <TypeScriptCompile Include="Angular\Products\product-list.component.ts" />

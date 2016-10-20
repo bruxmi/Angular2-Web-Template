@@ -19,19 +19,19 @@ export class HttpDataService<entityType> {
         return Observable.throw(error.json().error || 'Server error');
     }
 
-    getAll(url: string): Observable<entityType[]> {
+    public getAll(url: string): Observable<entityType[]> {
         return this.http.get(url)
             .map((response: Response) => <entityType[]>response.json())
             .catch(this.handleError);
     }
 
-    get(url: string, id: number): Observable<entityType> {
+    public get(url: string, id: number): Observable<entityType> {
         return this.http.get(url + id)
             .map((response: Response) => <entityType>response.json())
             .catch(this.handleError);
     }
 
-    add(url: string, itemName: string): Observable<entityType> {
+    public add(url: string, itemName: string): Observable<entityType> {
         let toAdd = JSON.stringify({ ItemName: itemName });
 
         return this.http.post(url, toAdd, { headers: this.headers })

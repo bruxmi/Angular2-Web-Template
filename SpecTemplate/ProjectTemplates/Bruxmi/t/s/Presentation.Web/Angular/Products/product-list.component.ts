@@ -1,10 +1,8 @@
 ﻿import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 
 import { IProduct } from './product';
 import { HttpDataService } from "../Shared/Http/http-data.service";
 import { productQueryUrl } from "./product.module";
-
 
 @Component({
     moduleId: module.id,
@@ -29,7 +27,6 @@ export class ProductListComponent implements OnInit{
     }
 
     ngOnInit(): void {
-        console.log("In OnInit");
         this.http.getAll(productQueryUrl).subscribe((product: IProduct[]) => {
             this.products = product;
         });

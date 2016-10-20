@@ -104,6 +104,7 @@
     <Compile Include="Interfaces\Services\Query\IApplicationSettingQueryService.cs" />
     <Compile Include="Interfaces\Services\Query\IConnectionStringQueryService.cs" />
     <Compile Include="Interfaces\Services\Query\IContextService.cs" />
+    <Compile Include="Interfaces\Services\Query\ILogQueryService.cs" />
     <Compile Include="Interfaces\Services\Query\IRepositoryInitializer.cs" />
     <Compile Include="Interfaces\Services\Query\IProductQueryService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

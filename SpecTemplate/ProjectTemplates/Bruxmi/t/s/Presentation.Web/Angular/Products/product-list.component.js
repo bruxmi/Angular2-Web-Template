@@ -25,7 +25,6 @@ var ProductListComponent = (function () {
     };
     ProductListComponent.prototype.ngOnInit = function () {
         var _this = this;
-        console.log("In OnInit");
         this.http.getAll(product_module_1.productQueryUrl).subscribe(function (product) {
             _this.products = product;
         });

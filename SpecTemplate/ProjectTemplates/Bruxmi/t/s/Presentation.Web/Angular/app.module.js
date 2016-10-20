@@ -17,6 +17,7 @@ var product_module_1 = require("./Products/product.module");
 var app_routing_module_1 = require("./app-routing.module");
 var welcome_component_1 = require("./Home/welcome.component");
 var shared_module_1 = require("./Shared/shared.module");
+var log_table_module_1 = require("./Logs/log-table.module");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -26,8 +27,9 @@ var AppModule = (function () {
                 http_1.HttpModule,
                 forms_1.FormsModule,
                 product_module_1.ProductModule,
+                log_table_module_1.LogModule,
                 app_routing_module_1.AppRoutingModule,
-                shared_module_1.SharedModule
+                shared_module_1.SharedModule,
             ],
             declarations: [app_component_1.AppComponent, welcome_component_1.WelcomeComponent],
             bootstrap: [app_component_1.AppComponent]

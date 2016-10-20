@@ -14,6 +14,7 @@ namespace Core.Registration.Container
         {
             builder.RegisterType<AppSettingContext>().InstancePerLifetimeScope();
             builder.RegisterType<ApplicationSettingQueryService>().As<IApplicationSettingQueryService>().InstancePerLifetimeScope();
+            builder.RegisterType<LogQueryService>().As<ILogQueryService>().InstancePerLifetimeScope();
             builder.RegisterType<ConnectionStringQueryService>().As<IConnectionStringQueryService>().InstancePerLifetimeScope();
             builder.RegisterGeneric(typeof(RepositoryApplicationSettingsInitializer<>)).As(typeof(IRepositoryApplicationSettingInitializer<>)).InstancePerLifetimeScope();
             builder.RegisterGeneric(typeof(ApplicationSettingsQueryRepository<>)).As(typeof(IApplicationSettingsQueryRepository<>)).InstancePerLifetimeScope();

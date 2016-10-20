@@ -13,6 +13,7 @@ var router_1 = require("@angular/router");
 var welcome_component_1 = require("./Home/welcome.component");
 var product_list_component_1 = require("./Products/product-list.component");
 var product_detail_component_1 = require("./Products/product-detail.component");
+var log_table_component_1 = require("./Logs/log-table.component");
 var AppRoutingModule = (function () {
     function AppRoutingModule() {
     }
@@ -23,7 +24,8 @@ var AppRoutingModule = (function () {
                     { path: '', redirectTo: 'welcome', pathMatch: 'full' },
                     { path: 'welcome', component: welcome_component_1.WelcomeComponent },
                     { path: 'products', component: product_list_component_1.ProductListComponent },
-                    { path: 'product/:id', component: product_detail_component_1.ProductDetailComponent }
+                    { path: 'product/:id', component: product_detail_component_1.ProductDetailComponent },
+                    { path: 'logs', component: log_table_component_1.LogTableComponent },
                 ])
             ],
             exports: [

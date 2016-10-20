@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="ApplicationSettings\ApplicationSettingQueryService.cs" />
     <Compile Include="ApplicationSettings\ConnectionStringQueryService.cs" />
+    <Compile Include="ApplicationSettings\LogQueryService.cs" />
     <Compile Include="ProductQueryService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
