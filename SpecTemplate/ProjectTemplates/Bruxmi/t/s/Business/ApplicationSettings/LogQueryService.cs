@@ -18,7 +18,7 @@ namespace Business.ApplicationSettings
 
         public async Task<int> GetLogsCountAsync(string searchTerm)
         {
-            if (string.IsNullOrEmpty(searchTerm))
+            if (searchTerm == "All")
             {
                 return await this.logRepository.CountAsync();
             }
