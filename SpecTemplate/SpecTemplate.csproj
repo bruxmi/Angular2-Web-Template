@@ -64,6 +64,10 @@
     <Content Include="ProjectTemplates\Bruxmi\t\s\Core.Registration\_preprocess.xml" />
     <Content Include="ProjectTemplates\Bruxmi\t\s\Presentation.Web\MyTemplate.vstemplate" />
     <Content Include="ProjectTemplates\Bruxmi\t\s\Presentation.Web\_preprocess.xml" />
+    <Content Include="ProjectTemplates\Bruxmi\t\s\Presentation.Web.MappingServices\MyTemplate.vstemplate" />
+    <Content Include="ProjectTemplates\Bruxmi\t\s\Presentation.Web.MappingServices\_preprocess.xml" />
+    <Content Include="ProjectTemplates\Bruxmi\t\s\Presentation.Web.ViewModels\MyTemplate.vstemplate" />
+    <Content Include="ProjectTemplates\Bruxmi\t\s\Presentation.Web.ViewModels\_preprocess.xml" />
     <Content Include="ProjectTemplates\Bruxmi\t\s\Business\MyTemplate.vstemplate" />
     <Content Include="ProjectTemplates\Bruxmi\t\s\Business\_preprocess.xml" />
     <Content Include="ProjectTemplates\Bruxmi\t\s\Data.ApplicationSettingsContext\MyTemplate.vstemplate" />

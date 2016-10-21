@@ -19,6 +19,8 @@
       </SolutionFolder>
       <SolutionFolder Name="11_Presentation">
         <ProjectTemplateLink ProjectName="Presentation.Web">s\Presentation.Web\MyTemplate.vstemplate</ProjectTemplateLink>
+       <ProjectTemplateLink ProjectName="Presentation.Web.MappingServices">s\Presentation.Web.MappingServices\MyTemplate.vstemplate</ProjectTemplateLink>
+       <ProjectTemplateLink ProjectName="Presentation.Web.ViewModels">s\Presentation.Web.ViewModels\MyTemplate.vstemplate</ProjectTemplateLink>
       </SolutionFolder>
       <SolutionFolder Name="22_Business">
         <ProjectTemplateLink ProjectName="Business">s\Business\MyTemplate.vstemplate</ProjectTemplateLink>
