@@ -104,9 +104,10 @@ export class LogTableComponent implements OnInit {
     private getLogs(): void {
         this.isLoading = true;
         this.http.update("api/logQuery/", 0, this.logPaging).subscribe(
-            logs => this.onSucceedLoading(logs),
+            (logsPaging: ILogPaging) => this.onSucceedLoading(logsPaging),
             error => this.onError(error)
         );
+
 
         this.infoService.showInfo("loading product...", "success")
     }

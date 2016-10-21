@@ -87,7 +87,7 @@ var LogTableComponent = (function () {
     LogTableComponent.prototype.getLogs = function () {
         var _this = this;
         this.isLoading = true;
-        this.http.update("api/logQuery/", 0, this.logPaging).subscribe(function (logs) { return _this.onSucceedLoading(logs); }, function (error) { return _this.onError(error); });
+        this.http.update("api/logQuery/", 0, this.logPaging).subscribe(function (logsPaging) { return _this.onSucceedLoading(logsPaging); }, function (error) { return _this.onError(error); });
         this.infoService.showInfo("loading product...", "success");
     };
     LogTableComponent.prototype.onSucceedLoading = function (logPaging) {

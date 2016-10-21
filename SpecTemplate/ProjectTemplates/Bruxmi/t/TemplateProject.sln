@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.ApplicationSettingsCon
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Repository", "s\Data.Repository\Data.Repository.csproj", "{AD47AA31-004C-4D52-A1CE-E1E55A3024AD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation.Web.ViewModels", "s\Presentation.Web.ViewModels\Presentation.Web.ViewModels.csproj", "{BD660BFF-087A-4177-9B12-F7F387A965CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation.Web.MappingServices", "s\Presentation.Web.MappingServices\Presentation.Web.MappingServices.csproj", "{AECBA233-97C7-44D1-B2B8-8DF2EAA67275}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{AD47AA31-004C-4D52-A1CE-E1E55A3024AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD47AA31-004C-4D52-A1CE-E1E55A3024AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD47AA31-004C-4D52-A1CE-E1E55A3024AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD660BFF-087A-4177-9B12-F7F387A965CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD660BFF-087A-4177-9B12-F7F387A965CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD660BFF-087A-4177-9B12-F7F387A965CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD660BFF-087A-4177-9B12-F7F387A965CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AECBA233-97C7-44D1-B2B8-8DF2EAA67275}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AECBA233-97C7-44D1-B2B8-8DF2EAA67275}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AECBA233-97C7-44D1-B2B8-8DF2EAA67275}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AECBA233-97C7-44D1-B2B8-8DF2EAA67275}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

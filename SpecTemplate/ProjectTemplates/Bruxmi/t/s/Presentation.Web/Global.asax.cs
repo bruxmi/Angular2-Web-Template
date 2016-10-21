@@ -3,13 +3,10 @@ using Autofac.Integration.WebApi;
 using Core;
 using Core.Extensions;
 using Core.Interfaces.Services.Query;
-using Core.Registration;
 using Core.Registration.Container;
+using Presentation.Web.App_Start;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -31,7 +28,7 @@ namespace Presentation.Web
         {
             AreaRegistration.RegisterAllAreas();
             var builder = AppContainer.Create();
-            Bootstrapper.InitializeProduction(builder);
+            WebBootstrapper.InitializeProduction(builder);
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
             AppContainer.Factory = builder.Build();
             AppConfiguration.Factory = AppContainer.Current.Resolve<IAppConfigurationService>();

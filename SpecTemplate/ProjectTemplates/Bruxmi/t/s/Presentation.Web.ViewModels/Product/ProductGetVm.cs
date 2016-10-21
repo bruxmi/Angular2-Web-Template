@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Core.Entities
+namespace Presentation.Web.ViewModels.Product
 {
-    public class Product
+    public class ProductGetVm
     {
         public int Id { get; set; }
         public string productName { get; set; }

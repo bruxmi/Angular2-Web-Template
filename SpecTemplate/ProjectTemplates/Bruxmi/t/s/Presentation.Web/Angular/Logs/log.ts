@@ -1,7 +1,7 @@
 ﻿export interface ILog {
     Id: string;
     Message: string;
-    TimeStamp: string;
+    TimeStamp: Date;
     Exception: string;
     Level: string;
     RequestId: string;

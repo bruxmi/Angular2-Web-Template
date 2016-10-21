@@ -158,6 +158,7 @@
     <Compile Include="Api\Base\BaseApiController.cs" />
     <Compile Include="Api\LogQueryController.cs" />
     <Compile Include="Api\ProductQueryController.cs" />
+    <Compile Include="App_Start\WebBootstrapper.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -313,6 +314,14 @@
     <ProjectReference Include="..\Core\Core.csproj">
       <Project>{fc4cf6c0-6ef9-4be3-bb44-d433a302083d}</Project>
       <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Presentation.Web.MappingServices\Presentation.Web.MappingServices.csproj">
+      <Project>{aecba233-97c7-44d1-b2b8-8df2eaa67275}</Project>
+      <Name>Presentation.Web.MappingServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Presentation.Web.ViewModels\Presentation.Web.ViewModels.csproj">
+      <Project>{bd660bff-087a-4177-9b12-f7f387a965ce}</Project>
+      <Name>Presentation.Web.ViewModels</Name>
     </ProjectReference>
   </ItemGroup>
   <!--<ItemGroup>

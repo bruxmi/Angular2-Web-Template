@@ -8,52 +8,33 @@ using System.Web.Http;
 
 namespace Presentation.Web.Api.Base
 {
-    public class BaseApiController<TBusinessService> : ApiController
+    public class BaseApiController<TBusinessService, TMappingService> : ApiController
     {
 
         protected const string ApiRouteBase = "api/";
         public BaseApiController()
             : this(
-                AppContainer.Current.Resolve<TBusinessService>())//,
-                                                                 //AppContainer.Current.Resolve<TMappingService>(),
-                                                                 //AppContainer.Current.Resolve<TLoggerService>())
+                AppContainer.Current.Resolve<TBusinessService>(),
+                AppContainer.Current.Resolve<TMappingService>())
         {
         }
-        public BaseApiController(TBusinessService service)
+        public BaseApiController(TBusinessService businessService, TMappingService mappingService)
         {
-            if (service == null)
+            if (businessService == null)
             {
-                throw new ArgumentNullException(nameof(service));
+                throw new ArgumentNullException(nameof(businessService));
             }
-            this.Service = service;
+            if (mappingService == null)
+            {
+                throw new ArgumentNullException(nameof(mappingService));
+            }
+
+            this.BusinessService = businessService;
+            this.MappingService = mappingService;
         }
 
-        //public BaseApiController(TBusinessService service, TMappingService mapping, TLoggerService logger)
-        //{
-        //    if (service == null)
-        //    {
-        //        throw new ArgumentNullException(nameof(service));
-        //    }
+        protected TBusinessService BusinessService { get; }
+        protected TMappingService MappingService { get; }
 
-        //    if (mapping == null)
-        //    {
-        //        throw new ArgumentNullException(nameof(mapping));
-        //    }
-
-        //    if (logger == null)
-        //    {
-        //        throw new ArgumentNullException(nameof(logger));
-        //    }
-
-        //    this.Service = service;
-        //    this.Mapping = mapping;
-        //    this.Logger = logger;
-        //}
-
-        //protected TLoggerService Logger { get; }
-
-        //      protected TMappingService Mapping { get; }
-
-        protected TBusinessService Service { get; }
     }
 }

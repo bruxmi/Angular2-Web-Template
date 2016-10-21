@@ -4,30 +4,32 @@
         <h1>Log-Table</h1>
     </div>
     <div class="panel-body">
-        <table class="table table-fixedheader table-bordered table-striped">
-            <thead>
-                <tr>
-                    <th class="col-sm-1">Id</th>
-                    <th class="col-sm-1">Level</th>
-                    <th class="col-sm-2">Timestamp</th>
-                    <th class="col-sm-3">Message</th>
-                    <th class="col-sm-3">Exception</th>
-                    <th class="col-sm-1">Username</th>
-                    <th class="col-sm-1">RequestId</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let log of logs">
-                    <td class="col-sm-1 concat">{{log.Id}}</td>
-                    <td class="col-sm-1 concat">{{log.Level}}</td>
-                    <td class="col-sm-2 concat">{{log.Timestamp}}</td>
-                    <td class="col-sm-3 concat">{{log.Message}}</td>
-                    <td class="col-sm-3 concat">{{log.Exception}}</td>
-                    <td class="col-sm-1 concat">{{log.UserName}}</td>
-                    <td class="col-sm-1 concat">{{log.RequestId}}</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table table-fixedheader table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th class="col-xs-1">Id</th>
+                        <th class="col-xs-1">Level</th>
+                        <th class="col-xs-1">Timestamp</th>
+                        <th class="col-xs-4">Message</th>
+                        <th class="col-xs-3">Exception</th>
+                        <th class="col-xs-1">Username</th>
+                        <th class="col-xs-1">RequestId</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let log of logs">
+                        <td class="col-xs-1 concat">{{log.Id}}</td>
+                        <td class="col-xs-1 concat">{{log.Level}}</td>
+                        <td class="col-xs-1 concat">{{log.TimeStamp | date:"dd.MM.yy HH:mm:ss"}}</td>
+                        <td class="col-xs-4 concat">{{log.Message}}</td>
+                        <td class="col-xs-3 concat">{{log.Exception}}</td>
+                        <td class="col-xs-1 concat">{{log.UserName}}</td>
+                        <td class="col-xs-1 concat">{{log.RequestId}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
     <div class="panel-footer">
         <span>Current page: {{logPaging.PageIndex}}</span>
