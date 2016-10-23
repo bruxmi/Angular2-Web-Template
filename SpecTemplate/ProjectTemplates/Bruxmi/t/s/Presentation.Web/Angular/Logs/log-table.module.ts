@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from "../app-routing.module"
 import { SharedModule } from '../Shared/shared.module';
 import { LogTableComponent } from './log-table.component';
-
+import { LogUrlService } from "./log-url.service";
 
 @NgModule({
     imports: [
@@ -14,6 +14,6 @@ import { LogTableComponent } from './log-table.component';
         LogTableComponent
     ],
     declarations: [LogTableComponent],
+    providers: [LogUrlService]
 })
 export class LogModule { }
-export const logQueryUrl: string = "api/logQuery/";

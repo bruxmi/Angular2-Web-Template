@@ -9,12 +9,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var log_url_service_1 = require("./log-url.service");
 var http_data_service_1 = require("../Shared/Http/http-data.service");
 var info_bar_event_service_1 = require("../Shared/Info/info-bar-event.service");
 var LogTableComponent = (function () {
-    function LogTableComponent(http, infoService) {
+    function LogTableComponent(http, infoService, logUrlService) {
         this.http = http;
         this.infoService = infoService;
+        this.logUrlService = logUrlService;
         this.pageTitle = "Logs";
         this.isLoading = false;
     }
@@ -87,7 +89,7 @@ var LogTableComponent = (function () {
     LogTableComponent.prototype.getLogs = function () {
         var _this = this;
         this.isLoading = true;
-        this.http.update("api/logQuery/", 0, this.logPaging).subscribe(function (logsPaging) { return _this.onSucceedLoading(logsPaging); }, function (error) { return _this.onError(error); });
+        this.http.update(this.logUrlService.getQueryUrl(), 0, this.logPaging).subscribe(function (logsPaging) { return _this.onSucceedLoading(logsPaging); }, function (error) { return _this.onError(error); });
         this.infoService.showInfo("loading product...", "success");
     };
     LogTableComponent.prototype.onSucceedLoading = function (logPaging) {
@@ -108,7 +110,7 @@ var LogTableComponent = (function () {
             templateUrl: 'log-table.component.html',
             styleUrls: ['log-table.component.css']
         }), 
-        __metadata('design:paramtypes', [http_data_service_1.HttpDataService, info_bar_event_service_1.InfoBarEventService])
+        __metadata('design:paramtypes', [http_data_service_1.HttpDataService, info_bar_event_service_1.InfoBarEventService, log_url_service_1.LogUrlService])
     ], LogTableComponent);
     return LogTableComponent;
 }());

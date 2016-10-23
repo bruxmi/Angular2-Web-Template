@@ -2,7 +2,7 @@
 
 import { IProduct } from './product';
 import { HttpDataService } from "../Shared/Http/http-data.service";
-import { productQueryUrl } from "./product.module";
+import { ProductUrlService } from "./product-url.service";
 
 @Component({
     moduleId: module.id,
@@ -19,7 +19,7 @@ export class ProductListComponent implements OnInit{
     listFilter: string = "";
     products: IProduct[];
     errorMessage: string;
-    constructor(private http: HttpDataService<IProduct>) {
+    constructor(private http: HttpDataService<IProduct>, private productUrlService: ProductUrlService) {
     }
 
     toggleImage(): void {
@@ -27,7 +27,7 @@ export class ProductListComponent implements OnInit{
     }
 
     ngOnInit(): void {
-        this.http.getAll(productQueryUrl).subscribe((product: IProduct[]) => {
+        this.http.getAll(this.productUrlService.getQueryUrl()).subscribe((product: IProduct[]) => {
             this.products = product;
         });
     }

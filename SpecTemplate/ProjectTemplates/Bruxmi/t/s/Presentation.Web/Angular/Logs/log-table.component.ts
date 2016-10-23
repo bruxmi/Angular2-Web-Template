@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ILog, ILogPaging } from './log';
-import { logQueryUrl } from "./log-table.module";
+import { LogUrlService } from "./log-url.service";
 import { HttpDataService } from "../Shared/Http/http-data.service";
 import { InfoBarEventService } from "../Shared/Info/info-bar-event.service";
 
@@ -21,7 +21,7 @@ export class LogTableComponent implements OnInit {
     pageSizes: any;
     logLevelFilter: any;
 
-    constructor(private http: HttpDataService<ILogPaging>, private infoService: InfoBarEventService) {
+    constructor(private http: HttpDataService<ILogPaging>, private infoService: InfoBarEventService, private logUrlService: LogUrlService) {
     }
 
     ngOnInit() {
@@ -103,7 +103,7 @@ export class LogTableComponent implements OnInit {
 
     private getLogs(): void {
         this.isLoading = true;
-        this.http.update("api/logQuery/", 0, this.logPaging).subscribe(
+        this.http.update(this.logUrlService.getQueryUrl(), 0, this.logPaging).subscribe(
             (logsPaging: ILogPaging) => this.onSucceedLoading(logsPaging),
             error => this.onError(error)
         );

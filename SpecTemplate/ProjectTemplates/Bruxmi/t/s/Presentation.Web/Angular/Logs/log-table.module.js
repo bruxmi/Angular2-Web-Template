@@ -14,6 +14,7 @@ var forms_1 = require('@angular/forms');
 var app_routing_module_1 = require("../app-routing.module");
 var shared_module_1 = require('../Shared/shared.module');
 var log_table_component_1 = require('./log-table.component');
+var log_url_service_1 = require("./log-url.service");
 var LogModule = (function () {
     function LogModule() {
     }
@@ -26,11 +27,11 @@ var LogModule = (function () {
                 log_table_component_1.LogTableComponent
             ],
             declarations: [log_table_component_1.LogTableComponent],
+            providers: [log_url_service_1.LogUrlService]
         }), 
         __metadata('design:paramtypes', [])
     ], LogModule);
     return LogModule;
 }());
 exports.LogModule = LogModule;
-exports.logQueryUrl = "api/logQuery/";
 //# sourceMappingURL=log-table.module.js.map

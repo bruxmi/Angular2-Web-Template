@@ -11,14 +11,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var router_1 = require('@angular/router');
 var http_data_service_1 = require("../Shared/Http/http-data.service");
-var product_module_1 = require("./product.module");
+var product_url_service_1 = require("./product-url.service");
 var info_bar_event_service_1 = require("../Shared/Info/info-bar-event.service");
 var ProductDetailComponent = (function () {
-    function ProductDetailComponent(router, route, http, infoService) {
+    function ProductDetailComponent(router, route, http, infoService, productUrlService) {
         this.router = router;
         this.route = route;
         this.http = http;
         this.infoService = infoService;
+        this.productUrlService = productUrlService;
         this.pageTitle = "Product Detail";
     }
     ProductDetailComponent.prototype.ngOnInit = function () {
@@ -33,7 +34,7 @@ var ProductDetailComponent = (function () {
     };
     ProductDetailComponent.prototype.getProduct = function (id) {
         var _this = this;
-        this.http.get(product_module_1.productQueryUrl, id).subscribe(function (product) { return _this.onSucceedLoading(product); }, function (error) { return _this.onError(error); });
+        this.http.get(this.productUrlService.getQueryUrl(), id).subscribe(function (product) { return _this.onSucceedLoading(product); }, function (error) { return _this.onError(error); });
         this.infoService.showInfo("loading product...", "success");
     };
     ProductDetailComponent.prototype.onBack = function () {
@@ -52,7 +53,7 @@ var ProductDetailComponent = (function () {
             moduleId: module.id,
             templateUrl: "product-detail.component.html"
         }), 
-        __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, http_data_service_1.HttpDataService, info_bar_event_service_1.InfoBarEventService])
+        __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, http_data_service_1.HttpDataService, info_bar_event_service_1.InfoBarEventService, product_url_service_1.ProductUrlService])
     ], ProductDetailComponent);
     return ProductDetailComponent;
 }());

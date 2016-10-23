@@ -3,10 +3,10 @@ import { FormsModule } from '@angular/forms';
 
 import { SharedModule } from '../Shared/shared.module';
 import { AppRoutingModule } from "../app-routing.module"
-
 import { ProductListComponent } from './product-list.component';
 import { ProductFilterPipe } from './product-filter.pipe';
-import { ProductDetailComponent } from "./product-detail.component"
+import { ProductDetailComponent } from "./product-detail.component";
+import { ProductUrlService } from "./product-url.service";
 
 @NgModule({
     imports: [
@@ -19,9 +19,9 @@ import { ProductDetailComponent } from "./product-detail.component"
         ProductListComponent,
         ProductFilterPipe,
         ProductDetailComponent
-    ]
+    ],
+    providers: [ProductUrlService]
 })
 export class ProductModule {
 }
 
-export const productQueryUrl: string = "api/productQuery/";

@@ -3,7 +3,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { IProduct } from "./product";
 import { HttpDataService } from "../Shared/Http/http-data.service";
-import { productQueryUrl } from "./product.module";
+import { ProductUrlService } from "./product-url.service";
 import { InfoBarEventService } from "../Shared/Info/info-bar-event.service";
 
 @Component({
@@ -19,7 +19,8 @@ export class ProductDetailComponent {
     constructor(private router: Router,
         private route: ActivatedRoute,
         private http: HttpDataService<IProduct>,
-        private infoService: InfoBarEventService) {
+        private infoService: InfoBarEventService,
+        private productUrlService: ProductUrlService) {
     }
 
     ngOnInit() {
@@ -33,7 +34,7 @@ export class ProductDetailComponent {
     }
 
     getProduct(id: number) {
-        this.http.get(productQueryUrl, id).subscribe(
+        this.http.get(this.productUrlService.getQueryUrl(), id).subscribe(
             product => this.onSucceedLoading(product),
             error => this.onError(error)
         );

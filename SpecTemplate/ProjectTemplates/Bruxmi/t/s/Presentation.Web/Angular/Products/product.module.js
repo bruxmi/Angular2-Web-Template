@@ -15,6 +15,7 @@ var app_routing_module_1 = require("../app-routing.module");
 var product_list_component_1 = require('./product-list.component');
 var product_filter_pipe_1 = require('./product-filter.pipe');
 var product_detail_component_1 = require("./product-detail.component");
+var product_url_service_1 = require("./product-url.service");
 var ProductModule = (function () {
     function ProductModule() {
     }
@@ -30,12 +31,12 @@ var ProductModule = (function () {
                 product_list_component_1.ProductListComponent,
                 product_filter_pipe_1.ProductFilterPipe,
                 product_detail_component_1.ProductDetailComponent
-            ]
+            ],
+            providers: [product_url_service_1.ProductUrlService]
         }), 
         __metadata('design:paramtypes', [])
     ], ProductModule);
     return ProductModule;
 }());
 exports.ProductModule = ProductModule;
-exports.productQueryUrl = "api/productQuery/";
 //# sourceMappingURL=product.module.js.map

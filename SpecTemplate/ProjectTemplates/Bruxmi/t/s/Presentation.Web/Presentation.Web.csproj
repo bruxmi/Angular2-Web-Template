@@ -285,9 +285,11 @@
     <TypeScriptCompile Include="Angular\Logs\log.ts" />
     <TypeScriptCompile Include="Angular\Logs\log-table.component.ts" />
     <TypeScriptCompile Include="Angular\Logs\log-table.module.ts" />
+    <TypeScriptCompile Include="Angular\Logs\log-url.service.ts" />
     <TypeScriptCompile Include="Angular\main.ts" />
     <TypeScriptCompile Include="Angular\Products\product-detail.component.ts" />
     <TypeScriptCompile Include="Angular\Products\product-list.component.ts" />
+    <TypeScriptCompile Include="Angular\Products\product-url.service.ts" />
     <TypeScriptCompile Include="Angular\Products\product.module.ts" />
     <TypeScriptCompile Include="Angular\Products\product.ts" />
     <TypeScriptCompile Include="Angular\Products\product-filter.pipe.ts" />

@@ -10,10 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var http_data_service_1 = require("../Shared/Http/http-data.service");
-var product_module_1 = require("./product.module");
+var product_url_service_1 = require("./product-url.service");
 var ProductListComponent = (function () {
-    function ProductListComponent(http) {
+    function ProductListComponent(http, productUrlService) {
         this.http = http;
+        this.productUrlService = productUrlService;
         this.pageTitle = "Product List";
         this.imageWidth = 50;
         this.imageMargin = 2;
@@ -25,7 +26,7 @@ var ProductListComponent = (function () {
     };
     ProductListComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.http.getAll(product_module_1.productQueryUrl).subscribe(function (product) {
+        this.http.getAll(this.productUrlService.getQueryUrl()).subscribe(function (product) {
             _this.products = product;
         });
     };
@@ -39,7 +40,7 @@ var ProductListComponent = (function () {
             templateUrl: 'product-list.component.html',
             styleUrls: ["product-list.component.css"]
         }), 
-        __metadata('design:paramtypes', [http_data_service_1.HttpDataService])
+        __metadata('design:paramtypes', [http_data_service_1.HttpDataService, product_url_service_1.ProductUrlService])
     ], ProductListComponent);
     return ProductListComponent;
 }());
