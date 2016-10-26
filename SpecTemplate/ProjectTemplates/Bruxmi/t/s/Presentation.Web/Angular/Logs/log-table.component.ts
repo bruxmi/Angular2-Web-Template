@@ -9,7 +9,7 @@ import { InfoBarEventService } from "../Shared/Info/info-bar-event.service";
     moduleId: module.id,
     selector: 'log-table',
     templateUrl: 'log-table.component.html',
-    styleUrls: ['log-table.component.css']
+    styleUrls: ['log-table.component.css'],       
 })
 
 export class LogTableComponent implements OnInit {
@@ -21,7 +21,9 @@ export class LogTableComponent implements OnInit {
     pageSizes: any;
     logLevelFilter: any;
 
-    constructor(private http: HttpDataService<ILogPaging>, private infoService: InfoBarEventService, private logUrlService: LogUrlService) {
+    constructor(private http: HttpDataService<ILogPaging>,
+        private infoService: InfoBarEventService,
+        private logUrlService: LogUrlService) {
     }
 
     ngOnInit() {
@@ -61,7 +63,6 @@ export class LogTableComponent implements OnInit {
         this.getLogs();
     }
    
-
     public getPageCount(): string {
         let result = "1";
         if (this.logPaging.PageSize != 0) {
@@ -107,8 +108,6 @@ export class LogTableComponent implements OnInit {
             (logsPaging: ILogPaging) => this.onSucceedLoading(logsPaging),
             error => this.onError(error)
         );
-
-
         this.infoService.showInfo("loading product...", "success")
     }
 

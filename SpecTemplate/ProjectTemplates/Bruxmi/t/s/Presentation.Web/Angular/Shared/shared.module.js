@@ -23,7 +23,7 @@ var SharedModule = (function () {
             exports: [
                 common_1.CommonModule,
                 star_component_1.StarComponent,
-                info_bar_component_1.InfoBarComponent
+                info_bar_component_1.InfoBarComponent,
             ],
             providers: [http_data_service_1.HttpDataService, info_bar_event_service_1.InfoBarEventService],
             declarations: [star_component_1.StarComponent, info_bar_component_1.InfoBarComponent],

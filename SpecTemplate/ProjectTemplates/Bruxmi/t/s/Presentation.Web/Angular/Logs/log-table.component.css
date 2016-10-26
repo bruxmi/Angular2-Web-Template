@@ -78,9 +78,21 @@ table.table-fixedheader>tbody>tr>td:after {
     clear: both;
 }
 
-table td[class*="col-"], table th[class*="col-"] {
+table td[class*="col-"] {
     display: block;
     float: left;
     height: 35px;
 }
 
+table th[class*="col-"] {
+    display: block;
+    float: left;
+    height: 35px;
+}
+
+input {
+    width: 100% !important;
+    max-width: none !important;
+    max-height: unset !important;
+    border: 0;
+}

@@ -108,7 +108,7 @@ var LogTableComponent = (function () {
             moduleId: module.id,
             selector: 'log-table',
             templateUrl: 'log-table.component.html',
-            styleUrls: ['log-table.component.css']
+            styleUrls: ['log-table.component.css'],
         }), 
         __metadata('design:paramtypes', [http_data_service_1.HttpDataService, info_bar_event_service_1.InfoBarEventService, log_url_service_1.LogUrlService])
     ], LogTableComponent);

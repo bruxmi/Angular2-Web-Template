@@ -19,13 +19,27 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let log of logs">
-                        <td class="col-xs-1 concat">{{log.Id}}</td>
-                        <td class="col-xs-1 concat">{{log.Level}}</td>
-                        <td class="col-xs-1 concat">{{log.TimeStamp | date:"dd.MM.yy HH:mm:ss"}}</td>
-                        <td class="col-xs-4 concat">{{log.Message}}</td>
-                        <td class="col-xs-3 concat">{{log.Exception}}</td>
-                        <td class="col-xs-1 concat">{{log.UserName}}</td>
-                        <td class="col-xs-1 concat">{{log.RequestId}}</td>
+                        <td class="col-xs-1 concat">
+                            <input type="text" [(ngModel)]="log.Id" />
+                        </td>
+                        <td class="col-xs-1 concat">
+                            <input type="text" [(ngModel)]="log.Level" />
+                        </td>
+                        <td class="col-xs-1 concat">
+                            <div>{{log.TimeStamp | date:"dd.MM.yy HH:mm:ss"}}</div>                          
+                        </td>
+                        <td class="col-xs-4 concat" tooltip="{{log.Message}}">
+                            <input type="text" [(ngModel)]="log.Message" />
+                        </td>
+                        <td class="col-xs-3 concat" tooltip="{{log.Exception}}">
+                            <input type="text" [(ngModel)]="log.Exception" />
+                        </td>
+                        <td class="col-xs-1 concat" tooltip="{{log.UserName}}">
+                            <input type="text" [(ngModel)]="log.UserName" />
+                        </td>
+                        <td class="col-xs-1 concat" tooltip="{{log.RequestId}}">
+                            <input type="text" [(ngModel)]="log.RequestId" />
+                        </td>
                     </tr>
                 </tbody>
             </table>

@@ -16,6 +16,7 @@ import { LogTableComponent }  from "./Logs/log-table.component";
     ],
     exports: [
         RouterModule
-    ]
+    ],
+    
 })
 export class AppRoutingModule { }

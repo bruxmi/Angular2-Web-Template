@@ -11,7 +11,7 @@ import { InfoBarComponent } from "./Info/info-bar.component";
     exports: [
         CommonModule,
         StarComponent,
-        InfoBarComponent
+        InfoBarComponent,
     ],
     providers: [HttpDataService, InfoBarEventService],
     declarations: [StarComponent, InfoBarComponent],

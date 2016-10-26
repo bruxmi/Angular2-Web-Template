@@ -5,4 +5,4 @@ var InfoMessage = (function () {
     return InfoMessage;
 }());
 exports.InfoMessage = InfoMessage;
-//# sourceMappingURL=infoMessage.js.map
+//# sourceMappingURL=InfoMessage.js.map

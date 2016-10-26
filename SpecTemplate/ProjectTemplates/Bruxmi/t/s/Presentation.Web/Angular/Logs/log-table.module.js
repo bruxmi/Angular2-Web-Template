@@ -15,13 +15,14 @@ var app_routing_module_1 = require("../app-routing.module");
 var shared_module_1 = require('../Shared/shared.module');
 var log_table_component_1 = require('./log-table.component');
 var log_url_service_1 = require("./log-url.service");
+var ng2_bootstrap_1 = require('ng2-bootstrap/ng2-bootstrap');
 var LogModule = (function () {
     function LogModule() {
     }
     LogModule = __decorate([
         core_1.NgModule({
             imports: [
-                forms_1.FormsModule, common_1.CommonModule, shared_module_1.SharedModule, app_routing_module_1.AppRoutingModule
+                forms_1.FormsModule, common_1.CommonModule, shared_module_1.SharedModule, app_routing_module_1.AppRoutingModule, ng2_bootstrap_1.TooltipModule
             ],
             exports: [
                 log_table_component_1.LogTableComponent

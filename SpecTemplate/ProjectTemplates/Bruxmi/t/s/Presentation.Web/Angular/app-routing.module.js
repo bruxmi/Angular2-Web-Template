@@ -28,7 +28,7 @@ var AppRoutingModule = (function () {
             ],
             exports: [
                 router_1.RouterModule
-            ]
+            ],
         }), 
         __metadata('design:paramtypes', [])
     ], AppRoutingModule);
